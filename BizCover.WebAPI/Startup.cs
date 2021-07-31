@@ -29,11 +29,11 @@ namespace BizCover.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ICarRepository, CarRepository>();
-            services.AddScoped<ICalcCarDiscountCmd, CalcCarDiscountCmd>();
-            services.AddScoped<ICreateCarCommand, CreateCarCommand>();
-            services.AddScoped<IUpdateCarCommand, UpdateCarCommand>();
-            services.AddScoped<IGetCarListQuery, GetCarListQuery>();
-            services.AddScoped<IGetCarQuery, GetCarQuery>();
+            services.AddTransient<ICalcCarDiscountCmd, CalcCarDiscountCmd>();
+            services.AddTransient<ICreateCarCommand, CreateCarCommand>();
+            services.AddTransient<IUpdateCarCommand, UpdateCarCommand>();
+            services.AddTransient<IGetCarListQuery, GetCarListQuery>();
+            services.AddTransient<IGetCarQuery, GetCarQuery>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
