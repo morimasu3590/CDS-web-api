@@ -16,6 +16,7 @@ namespace BizCover.Application
         }
         public async Task<Tuple<int, CreateCarModel>> Execute(CreateCarModel createCarModel)
         {
+            
             Car newCar = createCarModel.Adapt<Car>();
             int newCarKey = await carRepository.Add(newCar);
 

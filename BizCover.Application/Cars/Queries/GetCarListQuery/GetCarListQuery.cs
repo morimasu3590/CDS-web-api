@@ -20,8 +20,9 @@ namespace BizCover.Application
         public async Task<IEnumerable<CarItemModel>> Execute()
         {
             var cars = await carRepository.GetAllCars();
-            var carListItemModels = cars.Select(cli => cli.Adapt<CarItemModel>());
+            if (cars == null) return new List<CarItemModel>();
 
+            var carListItemModels = cars.Select(cli => cli.Adapt<CarItemModel>());
             return carListItemModels;
                 
         }

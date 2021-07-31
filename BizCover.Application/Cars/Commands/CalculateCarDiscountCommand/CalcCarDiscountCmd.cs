@@ -1,5 +1,6 @@
 ﻿
 using BizCover.Repository.Cars;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,14 @@ namespace BizCover.Application
 
         public async Task<decimal> Execute(int[] carIds)
         {
-            var orderedCars = from carRepo in await _carRepository.GetAllCars()
+            if (carIds is null)
+                throw new ArgumentNullException(nameof(carIds));
+
+            var allCars = await _carRepository.GetAllCars();
+            if(allCars is null || allCars.Count == 0)
+                throw new ArgumentNullException(nameof(carIds));
+
+            var orderedCars = from carRepo in allCars
                               join carId in carIds on carRepo.Id equals carId
                               select carRepo;
             var orders = orderedCars.GroupBy(order => order.Id)
