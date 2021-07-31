@@ -9,6 +9,7 @@ namespace BizCover.Application
 {
     public class UpdateCarCommand : IUpdateCarCommand
     {
+        
         private readonly ICarRepository carRepository;
 
         public UpdateCarCommand(ICarRepository carRepository)
@@ -16,13 +17,13 @@ namespace BizCover.Application
             this.carRepository = carRepository;
         }
 
-        public async Task Execute(int id, UpdateCarModel updateCarModel)
+        public async Task Execute(UpdateCarModel updateCarModel)
         {
             var cars = await carRepository.GetAllCars();
-            var existingCar = cars.SingleOrDefault(c => c.Id == id);
+            var existingCar = cars.SingleOrDefault(c => c.Id == updateCarModel.Id);
 
             if (existingCar == null)
-                throw new ArgumentNullException(nameof(UpdateCarCommand));
+                throw new ArgumentNullException(nameof(updateCarModel));
 
             Car updatedCar = updateCarModel.Adapt<Car>();
             updatedCar.Id = existingCar.Id;

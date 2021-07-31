@@ -10,7 +10,7 @@ namespace BizCover.Application
 {
     public class GetCarListQuery : IGetCarListQuery
     {
-        private ICarRepository carRepository;
+        private readonly ICarRepository carRepository;
 
         public GetCarListQuery(ICarRepository carRepository)
         {

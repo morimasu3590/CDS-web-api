@@ -21,7 +21,7 @@ namespace BizCover.Application
             var car = cars.SingleOrDefault(c => c.Id == id);
 
             if (car == null)
-                throw new ArgumentNullException(nameof(GetCarQuery));
+                throw new ArgumentNullException(nameof(id));
             
             return car.Adapt<CarItemModel>();
         }

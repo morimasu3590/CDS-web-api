@@ -42,7 +42,7 @@ namespace BizCover.WebAPI
 
         //GET /Cars/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<CarItemModel>> GetCar(int id)
+        public async Task<ActionResult<CarItemModel>> GetCar([FromQuery] int id)
         {
             try
             {
@@ -54,15 +54,16 @@ namespace BizCover.WebAPI
             }
         }
 
-       [HttpGet("{id}")]
-        public async Task<ActionResult<decimal>> GetDiscounts(int[] carIds)
+       [HttpGet("/discount")]
+        public ActionResult GetDiscounts([FromQuery] int[] carIds)
         {
             if(carIds == null || carIds.Length <= 0)
             {
                 return BadRequest();
             }
 
-            decimal discount = await calcCarDiscountCmd.Execute(carIds);
+            decimal discount = calcCarDiscountCmd.Execute(carIds)
+                                                 .GetAwaiter().GetResult();
             return Ok(
                 new { discount }
             );
@@ -77,13 +78,13 @@ namespace BizCover.WebAPI
 
         }
 
-        // POST /Cars/{id}
-        [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateCar(int id, UpdateCarModel updateCarModel)
+        // POST /Cars
+        [HttpPut]
+        public async Task<ActionResult> UpdateCar(UpdateCarModel updateCarModel)
         {
             try
             {
-                await updateCarCommand.Execute(id, updateCarModel);
+                await updateCarCommand.Execute(updateCarModel);
             }
             catch (ArgumentNullException)
             {
