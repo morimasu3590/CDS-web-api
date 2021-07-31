@@ -1,0 +1,14 @@
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\bin\Debug\net5.0\BizCover.Application.deps.json
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\bin\Debug\net5.0\BizCover.Application.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\bin\Debug\net5.0\ref\BizCover.Application.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\bin\Debug\net5.0\BizCover.Application.pdb
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\BizCover.Application.csproj.AssemblyReference.cache
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\BizCover.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\BizCover.Application.AssemblyInfoInputs.cache
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\BizCover.Application.AssemblyInfo.cs
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\BizCover.Application.csproj.CoreCompileInputs.cache
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\BizCover.Application.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\ref\BizCover.Application.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\BizCover.Application.pdb
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\bin\Debug\net5.0\BizCover.Repository.Cars.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Application\obj\Debug\net5.0\BizCover.Application.csproj.CopyComplete

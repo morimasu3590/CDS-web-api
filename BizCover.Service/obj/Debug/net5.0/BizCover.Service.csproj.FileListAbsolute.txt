@@ -1,0 +1,12 @@
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\bin\Debug\net5.0\BizCover.Service.deps.json
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\bin\Debug\net5.0\BizCover.Service.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\bin\Debug\net5.0\ref\BizCover.Service.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\bin\Debug\net5.0\BizCover.Service.pdb
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\obj\Debug\net5.0\BizCover.Service.csproj.AssemblyReference.cache
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\obj\Debug\net5.0\BizCover.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\obj\Debug\net5.0\BizCover.Service.AssemblyInfoInputs.cache
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\obj\Debug\net5.0\BizCover.Service.AssemblyInfo.cs
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\obj\Debug\net5.0\BizCover.Service.csproj.CoreCompileInputs.cache
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\obj\Debug\net5.0\BizCover.Service.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\obj\Debug\net5.0\ref\BizCover.Service.dll
+D:\Workspace\Projects\repo\BizCover.API\BizCover.Service\obj\Debug\net5.0\BizCover.Service.pdb
