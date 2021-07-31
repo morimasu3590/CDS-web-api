@@ -1,6 +1,5 @@
 ﻿using BizCover.Application;
 using BizCover.Repository.Cars;
-using BizCover.WebAPI.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
