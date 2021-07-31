@@ -18,8 +18,10 @@ namespace BizCover.Application
         public async Task<CarItemModel> Execute(int id)
         {
             var cars = await carRepository.GetAllCars();
-            var car = cars.SingleOrDefault(c => c.Id == id);
+            if (cars == null)
+                throw new ArgumentNullException(nameof(id));
 
+            var car = cars.SingleOrDefault(c => c.Id == id);
             if (car == null)
                 throw new ArgumentNullException(nameof(id));
             
