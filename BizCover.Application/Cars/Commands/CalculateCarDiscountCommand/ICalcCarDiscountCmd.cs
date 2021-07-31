@@ -1,10 +1,9 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 
 namespace BizCover.Application
 {
     public interface ICalcCarDiscountCmd
     {
-        decimal Execute(List<CarDiscountModel> carDiscountModelJSONs);
+        Task<decimal> Execute(int[] carIds);
     }
 }

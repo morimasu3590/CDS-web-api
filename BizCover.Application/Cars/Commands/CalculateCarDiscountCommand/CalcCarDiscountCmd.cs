@@ -1,37 +1,70 @@
 ﻿
+using BizCover.Repository.Cars;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BizCover.Application
 {
-    public record Order(decimal Cost, int Items, int Year);
+    
 
     public class CalcCarDiscountCmd : ICalcCarDiscountCmd
     {
-        public decimal Execute(System.Collections.Generic.List<CarDiscountModel> carDiscountModelJSONs)
+        private readonly ICarRepository _carRepository;
+
+        public CalcCarDiscountCmd(ICarRepository carRepository)
         {
-            decimal totalCost = carDiscountModelJSONs.Sum(x => x.Price);
-            int countItems = carDiscountModelJSONs.Count;
-            int minOldCarYear = carDiscountModelJSONs.Min(x => x.Year);
+            this._carRepository = carRepository;
+        }
+
+        public async Task<decimal> Execute(int[] carIds)
+        {
+            var orderedCars = from carRepo in await _carRepository.GetAllCars()
+                              join carId in carIds on carRepo.Id equals carId
+                              select carRepo;
+            var orders = orderedCars.GroupBy(order => order.Id)
+                .Select(order => new { 
+                    car = order.First(),
+                    quantity = order.Count()
+                });
+
+
+
+            decimal totalCost = orders.Sum(order => order.car.Price * order.quantity);
+            int countItems = orders.Sum(order => order.quantity);
+            int minOldCarYear = orders.Min(order => order.car.Year);
 
             decimal discount = CalculateDiscount(
-                new Order(Cost: totalCost, Items: countItems, Year: minOldCarYear)
+                totalCost, countItems, minOldCarYear
             );
 
             return discount;
         }
 
-        private static decimal CalculateDiscount(Order order) =>
-            order switch
+        private static decimal CalculateDiscount(decimal totalCost, int totalCars, int oldestYear)
+        {
+            decimal totalDiscount = 0;
+            if(totalCost > 100000m)
             {
-                (Cost: > 100000, Items: > 2, Year: < 2000) => 0.18m,
-                (Cost: > 100000, Items: > 2, Year: > 2000) => 0.08m,
-                (Cost: > 100000, Items: < 3, Year: > 2000) => 0.05m,
-                (Cost: < 100000, Items: < 3, Year: > 2000) => 0.00m,
-                Order { Cost: > 100000 } => 0.05m,
-                Order { Items: > 2 } => 0.03m,
-                Order { Year: < 2000 } => 0.10m,
-                _ => throw new System.NotImplementedException(),
-            };
+                totalDiscount += 5;
+            }
+
+            if(totalCars > 2)
+            {
+                totalDiscount += 3;
+            }
+
+            if(oldestYear < 2000)
+            {
+                totalDiscount += 10;
+            }
+
+            return totalDiscount;
+        }
+
+        
+            
+
     }
 }

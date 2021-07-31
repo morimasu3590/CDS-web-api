@@ -55,12 +55,19 @@ namespace BizCover.WebAPI
             }
         }
 
-       //[HttpPost]
-       //public ActionResult GetCalculatedDiscount(List<CarDiscountModel> carDiscountModels)
-       // {
-       //     decimal discount = calcCarDiscountCmd.Execute(carDiscountModels);
-       //     return Ok();
-       // }
+       [HttpGet("{id}")]
+        public async Task<ActionResult<decimal>> GetDiscounts(int[] carIds)
+        {
+            if(carIds == null || carIds.Length <= 0)
+            {
+                return BadRequest();
+            }
+
+            decimal discount = await calcCarDiscountCmd.Execute(carIds);
+            return Ok(
+                new { discount }
+            );
+        }
 
         [HttpPost]
         public async Task<ActionResult<Car>> AddCar(CreateCarModel createCarModel)
